@@ -14,10 +14,12 @@ app.use(express.json());
 const userAPI = require('./APIs/userAPI');
 const productAPI = require('./APIs/productAPI');
 const campaignAPI = require('./APIs/campaignAPI');
+const donationAPI = require('./APIs/donationAPI');
 
 app.use('/user', userAPI);
 app.use('/product', productAPI);
 app.use('/campaign', campaignAPI);
+app.use('/donation', donationAPI);
 
 // MongoDB Atlas connection and server start
 mongoose.connect(uri)

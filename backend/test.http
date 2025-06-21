@@ -143,3 +143,30 @@ Content-Type: application/json
 
 ###
 delete http://localhost:5000/campaign/68567f17ea6cfe080c6e7033
+
+
+### DONATIONS ROUTES
+
+###
+get http://localhost:5000/donation/
+
+###
+get http://localhost:5000/donation/6856816552b19580bd1e8c89
+
+###
+post http://localhost:5000/donation/
+Content-Type: application/json
+
+{
+    "donor":"68567a971a70cb12028a1f6a",
+    "products":[
+        {
+            "product":"68567a971a70cb12028a1f6a",
+            "quantity":0,
+            "amount":0
+        }
+    ],
+    "paymentStatus":"pending",
+    "delivery":null
+}
+
