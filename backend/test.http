@@ -1,5 +1,89 @@
-### Create Stripe Checkout Session
-POST http://localhost:5000/api/create-checkout-session
+###
+GET http://localhost:5000/user/users
+
+###
+GET http://localhost:5000/user/users/pavitra
+
+
+###post
+POST  http://localhost:5000/user/create
 Content-Type: application/json
 
-{}
+{
+    "name": "pavitra",
+    "email": "pavitrajasti3@gmail.com",
+    "passwordHash": "Pavitra@123",
+    "phone": "1234567890",
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "pincode": "12345"
+    },
+    "role": "donor",
+    "donationHistory": [],
+    "createdAt": "2023-06-01T00:00:00.000Z"
+}
+
+###put
+PUT http://localhost:5000/user/update/685672fb361f090a1775872f
+
+Content-Type: application/json
+{
+    "name": "pavitraJ",
+    "email": "pavitrajasti3@gmail.com",
+    "passwordHash": "Pavitra@123",
+    "phone": "8247738586",
+    "address": {
+        "street": "",
+        "city": "Anytown",
+        "state": "CA",
+        "pincode": "12345"
+    },
+    "role": "donor",
+    "donationHistory": [],
+    "createdAt": "2023-06-01T00:00:00.000Z"
+}
+
+###
+DELETE http://localhost:5000/user/delete/pavitrajasti3@gmail.com
+
+
+
+
+
+
+###
+get http://localhost:5000/product/
+
+###
+get http://localhost:5000/product/685676b416f50ff0b4e5cd66
+
+###
+post http://localhost:5000/product/
+Content-Type: application/json
+
+{
+    "name":"product1",
+    "description": "",
+    "itemsIncluded": [],
+    "price": 0,
+    "imageUrl": "",
+    "availableStock": 3
+}
+
+###
+put http://localhost:5000/product/68567a971a70cb12028a1f6a
+Content-Type: application/json
+
+{
+    "name":"product2",
+    "description": "",
+    "itemsIncluded": [],
+    "price": 0,
+    "imageUrl": "",
+    "availableStock": 3
+}
+
+###
+delete http://localhost:5000/product/68567a971a70cb12028a1f6a
