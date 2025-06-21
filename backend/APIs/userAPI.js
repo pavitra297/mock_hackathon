@@ -3,6 +3,7 @@ const userApp=express.Router();
 const User=require("../models/User");
 const bcryptjs = require('bcryptjs');
 userApp.use(express.json());
+userApp.use(express.urlencoded({ extended: true }));
 
 //get all users
 userApp.get("/users", async (req, res) => {
@@ -40,18 +41,38 @@ userApp.post("/create", async (req, res) => {
   }
 });
 
-//update user details
-userApp.put("/update",async (req,res)=>{
-  try {
-    const user=await User.findOneAndUpdate({email:req.body.email},req.body,{new:true,runValidators:true});
-    //console.log("hi");
-    if(!user){
-      return res.status(400).send({message:"error",error:"user not found"});
+//update user details by id
+userApp.put('/update/:id', async (req, res) => {
+    try {
+        // Add validation for request body
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).send({ message: "error", error: "No data provided for update" });
+        }
+
+        // Log what we're trying to update (for debugging)
+        console.log('Updating user ID:', req.params.id);
+        console.log('Update data:', req.body);
+
+        const user = await User.findOneAndUpdate(
+            { _id: req.params.id }, 
+            { $set: req.body }, // Use $set operator explicitly
+            { 
+                new: true, 
+                runValidators: true,
+                upsert: false // Explicitly set to false
+            }
+        );
+        
+        if (user) {
+            console.log('Updated user:', user); // Log the result
+            res.send({ message: "success", data: user });
+        } else {
+            res.status(404).send({ message: "error", error: "user not found" });
+        }
+    } catch (error) {
+        console.error('Update error:', error); // Log the full error
+        res.status(500).send({ message: "error", error: error.message });
     }
-    res.send({message:"success",payload:user});
-  } catch (error) {
-    res.status(500).send({message:"error",error});
-  }
 });
 
 //delete user

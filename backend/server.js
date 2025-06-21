@@ -13,9 +13,11 @@ app.use(express.json());
 // Add your API routes here
 const userAPI = require('./APIs/userAPI');
 const productAPI = require('./APIs/productAPI');
+const campaignAPI = require('./APIs/campaignAPI');
 
 app.use('/user', userAPI);
 app.use('/product', productAPI);
+app.use('/campaign', campaignAPI);
 
 // MongoDB Atlas connection and server start
 mongoose.connect(uri)

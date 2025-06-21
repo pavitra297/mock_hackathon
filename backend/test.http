@@ -87,3 +87,59 @@ Content-Type: application/json
 
 ###
 delete http://localhost:5000/product/68567a971a70cb12028a1f6a
+
+###campaign routes
+
+###
+get http://localhost:5000/campaign/
+
+###grt
+get http://localhost:5000/campaign/68567f17ea6cfe080c6e7033
+
+###
+post http://localhost:5000/campaign/
+Content-Type: application/json
+
+{
+    "title":"campaign1",
+    "description":"",
+    "startDate":"",
+    "endDate":"",
+    "targetAmount":0,
+    "raisedAmount":0,
+    "targetRegion":"",
+    "productsNeeded":[
+        {
+            "product":"68567a971a70cb12028a1f6a",
+            "quantity":0
+        }
+    ],
+    "isActive":true,
+    "createdBy":"68567a971a70cb12028a1f6a"
+}
+
+###
+put http://localhost:5000/campaign/68567f17ea6cfe080c6e7033
+Content-Type: application/json       
+
+{
+    
+    "title":"campaign2",
+    "description":"",
+    "startDate":"",
+    "endDate":"",
+    "targetAmount":0,
+    "raisedAmount":0,
+    "targetRegion":"",
+    "productsNeeded":[
+        {
+            "product":"68567a971a70cb12028a1f6a",
+            "quantity":0
+        }
+    ],
+    "isActive":true,
+    "createdBy":"68567a971a70cb12028a1f6a"
+}
+
+###
+delete http://localhost:5000/campaign/68567f17ea6cfe080c6e7033
