@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -21,10 +22,3 @@ mongoose.connect(uri)
 .catch((err) => {
   console.error('Error connecting to MongoDB Atlas:', err.message);
 });
-
-// Example route
-app.get('/', (req, res) => {
-  res.send('Backend server is running!');
-});
-
-// Add your API routes here

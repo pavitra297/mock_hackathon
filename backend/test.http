@@ -1,0 +1,5 @@
+### Create Stripe Checkout Session
+POST http://localhost:5000/api/create-checkout-session
+Content-Type: application/json
+
+{}
