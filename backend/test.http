@@ -1,0 +1,46 @@
+###
+GET http://localhost:5000/user/users
+
+###
+GET http://localhost:5000/user/users/pavitra
+
+
+###post
+POST  http://localhost:5000/user/create
+Content-Type: application/json
+
+{
+    "name": "pavitra",
+    "email": "pavitrajasti3@gmail.com",
+    "passwordHash": "Pavitra@123",
+    "phone": "1234567890",
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "pincode": "12345"
+    },
+    "role": "donor",
+    "donationHistory": [],
+    "createdAt": "2023-06-01T00:00:00.000Z"
+}
+
+###put
+PUT http://localhost:5000/user/update
+
+Content-Type: application/json
+{
+    "name": "pavitra",
+    "email": "pavitrajasti3@gmail.com",
+    "passwordHash": "Pavitra@123",
+    "phone": "1234567890",
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "pincode": "12345"
+    },
+    "role": "donor",
+    "donationHistory": [],
+    "createdAt": "2023-06-01T00:00:00.000Z"
+}
