@@ -4,7 +4,8 @@
     "express": "^5.1.0",
     "express-async-handler": "^1.2.0",
     "mongodb": "^6.17.0",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "stripe": "^18.2.1"
   },
   "name": "backend",
   "version": "1.0.0",
