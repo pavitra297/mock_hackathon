@@ -54,6 +54,18 @@ userApp.put("/update",async (req,res)=>{
   }
 });
 
+//delete user
+userApp.delete("/delete/:email",async (req,res)=>{
+  try {
+    const user=await User.findOneAndDelete({email:req.params.email});
+    if(!user){
+      return res.status(400).send({message:"error",error:"user not found"});
+    }
+    res.send({message:"success",payload:user});
+  } catch (error) {
+    res.status(500).send({message:"error",error});
+  }
+});
 
 
 

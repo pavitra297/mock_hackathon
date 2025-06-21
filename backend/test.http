@@ -44,3 +44,6 @@ Content-Type: application/json
     "donationHistory": [],
     "createdAt": "2023-06-01T00:00:00.000Z"
 }
+
+###
+DELETE http://localhost:5000/user/delete/pavitrajasti3@gmail.com
