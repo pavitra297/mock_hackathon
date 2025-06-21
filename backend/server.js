@@ -12,12 +12,10 @@ app.use(express.json());
 
 // Add your API routes here
 const userAPI = require('./APIs/userAPI');
-const adminAPI = require('./APIs/adminAPI');
-const donorAPI = require('./APIs/donorAPI');
+const productAPI = require('./APIs/productAPI');
 
 app.use('/user', userAPI);
-app.use('/admin', adminAPI);
-app.use('/donor', donorAPI);
+app.use('/product', productAPI);
 
 // MongoDB Atlas connection and server start
 mongoose.connect(uri)

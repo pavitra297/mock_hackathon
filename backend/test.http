@@ -26,16 +26,16 @@ Content-Type: application/json
 }
 
 ###put
-PUT http://localhost:5000/user/update
+PUT http://localhost:5000/user/update/685672fb361f090a1775872f
 
 Content-Type: application/json
 {
-    "name": "pavitra",
+    "name": "pavitraJ",
     "email": "pavitrajasti3@gmail.com",
     "passwordHash": "Pavitra@123",
-    "phone": "1234567890",
+    "phone": "8247738586",
     "address": {
-        "street": "123 Main St",
+        "street": "",
         "city": "Anytown",
         "state": "CA",
         "pincode": "12345"
@@ -47,3 +47,43 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5000/user/delete/pavitrajasti3@gmail.com
+
+
+
+
+
+
+###
+get http://localhost:5000/product/
+
+###
+get http://localhost:5000/product/685676b416f50ff0b4e5cd66
+
+###
+post http://localhost:5000/product/
+Content-Type: application/json
+
+{
+    "name":"product1",
+    "description": "",
+    "itemsIncluded": [],
+    "price": 0,
+    "imageUrl": "",
+    "availableStock": 3
+}
+
+###
+put http://localhost:5000/product/68567a971a70cb12028a1f6a
+Content-Type: application/json
+
+{
+    "name":"product2",
+    "description": "",
+    "itemsIncluded": [],
+    "price": 0,
+    "imageUrl": "",
+    "availableStock": 3
+}
+
+###
+delete http://localhost:5000/product/68567a971a70cb12028a1f6a
