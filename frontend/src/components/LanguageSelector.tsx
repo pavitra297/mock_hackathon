@@ -1,45 +1,4 @@
 
-// import React from 'react';
-// import { Button } from '@/components/ui/button';
-// import { useLanguage, Language } from '@/contexts/LanguageContext';
-// import { Globe } from 'lucide-react';
-
-// const LanguageSelector = () => {
-//   const { language, setLanguage } = useLanguage();
-
-//   const languages = [
-//     { code: 'en' as Language, name: 'English', flag: '🇺🇸' },
-//     { code: 'hi' as Language, name: 'हिंदी', flag: '🇮🇳' },
-//     { code: 'te' as Language, name: 'తెలుగు', flag: '🇮🇳' }
-//   ];
-
-//   return (
-//     <div className="flex items-center space-x-2">
-//       <Globe className="h-4 w-4 text-gray-600" />
-//       <div className="flex space-x-1">
-//         {languages.map((lang) => (
-//           <Button
-//             key={lang.code}
-//             variant={language === lang.code ? "default" : "outline"}
-//             size="sm"
-//             onClick={() => setLanguage(lang.code)}
-//             className={`text-xs px-2 py-1 transition-all duration-200 ${
-//               language === lang.code 
-//                 ? 'bg-coral-500 text-white hover:bg-coral-600' 
-//                 : 'hover:bg-coral-50 hover:border-coral-300 hover:text-coral-600'
-//             }`}
-//           >
-//             <span className="mr-1">{lang.flag}</span>
-//             {lang.name}
-//           </Button>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LanguageSelector;
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import {

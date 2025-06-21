@@ -1,11 +1,13 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { campaigns } from '@/data/mockData';
 import { MapPin, Users, Calendar } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Campaigns = () => {
+  const { t } = useLanguage();
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
@@ -22,11 +24,11 @@ const Campaigns = () => {
   const getStatusText = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'Completed';
+        return t('campaigns.status.completed');
       case 'ongoing':
-        return 'Ongoing';
+        return t('campaigns.status.ongoing');
       case 'upcoming':
-        return 'Upcoming';
+        return t('campaigns.status.upcoming');
       default:
         return status;
     }
@@ -38,10 +40,9 @@ const Campaigns = () => {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Campaigns</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('campaigns.title')}</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our ongoing and completed campaigns across India. Each campaign represents 
-              our commitment to empowering women through menstrual health awareness and support.
+              {t('campaigns.description')}
             </p>
           </div>
         </div>
@@ -83,11 +84,11 @@ const Campaigns = () => {
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <Users className="h-4 w-4 mr-2 text-teal-500" />
-                    <span>{campaign.beneficiaries.toLocaleString()} women supported</span>
+                    <span>{campaign.beneficiaries.toLocaleString()} {t('campaigns.beneficiaries')}</span>
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <Calendar className="h-4 w-4 mr-2 text-purple-500" />
-                    <span>Campaign Date: {new Date(campaign.date).toLocaleDateString('en-IN')}</span>
+                    <span>{t('campaigns.date')}: {new Date(campaign.date).toLocaleDateString('en-IN')}</span>
                   </div>
                 </div>
 
@@ -121,36 +122,36 @@ const Campaigns = () => {
 
         {/* Stats Section */}
         <div className="mt-16 bg-white rounded-xl shadow-sm p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Campaign Impact</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">{t('campaigns.impact.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
               <p className="text-3xl font-bold text-coral-600">
                 {campaigns.reduce((total, campaign) => total + campaign.beneficiaries, 0).toLocaleString()}
               </p>
-              <p className="text-gray-600">Total Women Reached</p>
+              <p className="text-gray-600">{t('campaigns.impact.totalWomen')}</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-teal-600">{campaigns.length}</p>
-              <p className="text-gray-600">Total Campaigns</p>
+              <p className="text-gray-600">{t('campaigns.impact.totalCampaigns')}</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-blue-600">
                 {campaigns.filter(c => c.status === 'completed').length}
               </p>
-              <p className="text-gray-600">Completed</p>
+              <p className="text-gray-600">{t('campaigns.impact.completed')}</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-purple-600">
                 {new Set(campaigns.map(c => c.location.split(',')[1]?.trim())).size}
               </p>
-              <p className="text-gray-600">States Covered</p>
+              <p className="text-gray-600">{t('campaigns.impact.statesCovered')}</p>
             </div>
           </div>
         </div>
 
         {/* Articles Section */}
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Educational Articles</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('campaigns.articles.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {

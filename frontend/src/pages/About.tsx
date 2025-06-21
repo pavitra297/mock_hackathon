@@ -1,29 +1,31 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Users, Target, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+
   const values = [
     {
       icon: Heart,
-      title: 'Compassion',
-      description: 'We approach every woman\'s story with empathy and understanding, ensuring dignity in all our interactions.'
+      title: t('about.values.compassion.title'),
+      description: t('about.values.compassion.description')
     },
     {
       icon: Users,
-      title: 'Community',
-      description: 'Building strong partnerships with local NGOs, communities, and donors to create lasting change.'
+      title: t('about.values.community.title'),
+      description: t('about.values.community.description')
     },
     {
       icon: Target,
-      title: 'Impact',
-      description: 'Focused on measurable outcomes that improve women\'s health, education, and economic opportunities.'
+      title: t('about.values.impact.title'),
+      description: t('about.values.impact.description')
     },
     {
       icon: Globe,
-      title: 'Accessibility',
-      description: 'Making menstrual hygiene products and education accessible to every woman, regardless of location or economic status.'
+      title: t('about.values.accessibility.title'),
+      description: t('about.values.accessibility.description')
     }
   ];
 
@@ -59,11 +61,9 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-coral-50 to-teal-50 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">About EmPad</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{t('about.title')}</h1>
           <p className="text-xl text-gray-700 leading-relaxed">
-            We believe every woman deserves access to safe, affordable menstrual hygiene products 
-            and the education to use them with confidence. Our mission is to break down barriers 
-            and empower women across India.
+            {t('about.description')}
           </p>
         </div>
       </section>
@@ -74,24 +74,18 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="border-l-4 border-l-coral-500">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('about.mission.title')}</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  To eliminate period poverty in India by providing sustainable access to menstrual 
-                  hygiene products, comprehensive education, and community support systems. We work 
-                  hand-in-hand with local organizations to ensure culturally sensitive and effective 
-                  solutions that respect local customs while promoting health and dignity.
+                  {t('about.mission.description')}
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-l-4 border-l-teal-500">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('about.vision.title')}</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  A world where menstruation is not a barrier to education, work, or social participation. 
-                  We envision an India where every woman and girl has the knowledge, products, and 
-                  support she needs to manage her menstrual health with confidence and dignity, 
-                  contributing to stronger, more equitable communities.
+                  {t('about.vision.description')}
                 </p>
               </CardContent>
             </Card>
@@ -103,8 +97,8 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('about.values.title')}</h2>
+            <p className="text-xl text-gray-600">{t('about.values.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -130,7 +124,7 @@ const About = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Impact Story</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('about.impact.title')}</h2>
           </div>
           
           <div className="space-y-8">
@@ -180,8 +174,8 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
-            <p className="text-xl text-gray-600">Passionate individuals working to create change</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('about.team.title')}</h2>
+            <p className="text-xl text-gray-600">{t('about.team.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -206,25 +200,24 @@ const About = () => {
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r from-coral-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('about.join.title')}</h2>
           <p className="text-xl text-white/90 mb-8">
-            Whether you're a donor, volunteer, or organization looking to partner with us, 
-            there are many ways to get involved and make a difference.
+            {t('about.join.description')}
           </p>
           <div className="space-y-4">
-            <p className="text-lg">Ready to empower women across India?</p>
+            <p className="text-lg">{t('about.join.ready')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/donate" 
                 className="bg-white text-coral-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Start Donating
+                {t('cta.startDonating')}
               </a>
               <a 
                 href="mailto:partner@empad.org" 
                 className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
               >
-                Become a Partner
+                {t('about.join.partner')}
               </a>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { toast } from '@/hooks/use-toast';
 import { Eye, EyeOff } from 'lucide-react';
 
@@ -24,6 +25,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const { login, register, loginWithGoogle, user } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -111,12 +113,12 @@ const Login = () => {
         <Card className="shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-gray-900">
-              {isRegistering ? 'Create Account' : 'Welcome Back'}
+              {isRegistering ? t('login.createAccount') : t('login.welcome')}
             </CardTitle>
             <p className="text-gray-600">
               {isRegistering 
-                ? 'Join our mission to empower women' 
-                : 'Sign in to continue making a difference'
+                ? t('login.joinDescription')
+                : t('login.signInDescription')
               }
             </p>
           </CardHeader>
@@ -125,7 +127,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {isRegistering && (
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
+                  <Label htmlFor="name">{t('login.fullName')}</Label>
                   <Input
                     id="name"
                     name="name"
@@ -133,13 +135,13 @@ const Login = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="Enter your full name"
+                    placeholder={t('login.fullName')}
                   />
                 </div>
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t('login.email')}</Label>
                 <Input
                   id="email"
                   name="email"
@@ -147,12 +149,12 @@ const Login = () => {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="Enter your email"
+                  placeholder={t('login.email')}
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t('login.password')}</Label>
                 <div className="relative">
                   <Input
                     id="password"
@@ -161,7 +163,7 @@ const Login = () => {
                     required
                     value={formData.password}
                     onChange={handleInputChange}
-                    placeholder="Enter your password"
+                    placeholder={t('login.password')}
                   />
                   <button
                     type="button"
@@ -179,7 +181,7 @@ const Login = () => {
 
               {isRegistering && (
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Label htmlFor="confirmPassword">{t('login.confirmPassword')}</Label>
                   <Input
                     id="confirmPassword"
                     name="confirmPassword"
@@ -187,7 +189,7 @@ const Login = () => {
                     required
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    placeholder="Confirm your password"
+                    placeholder={t('login.confirmPassword')}
                   />
                 </div>
               )}
@@ -197,7 +199,7 @@ const Login = () => {
                 className="w-full gradient-primary text-white"
                 disabled={loading}
               >
-                {loading ? 'Please wait...' : (isRegistering ? 'Create Account' : 'Sign In')}
+                {loading ? 'Please wait...' : (isRegistering ? t('login.createAccountBtn') : t('login.signIn'))}
               </Button>
             </form>
 
@@ -206,7 +208,7 @@ const Login = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">{t('login.continueWith')}</span>
               </div>
             </div>
 
@@ -235,7 +237,7 @@ const Login = () => {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Continue with Google
+              {t('login.continueWithGoogle')}
             </Button>
 
             <div className="text-center">
@@ -245,18 +247,18 @@ const Login = () => {
                 onClick={() => setIsRegistering(!isRegistering)}
               >
                 {isRegistering 
-                  ? 'Already have an account? Sign in' 
-                  : "Don't have an account? Sign up"
+                  ? t('login.alreadyHaveAccount')
+                  : t('login.dontHaveAccount')
                 }
               </button>
             </div>
 
             {/* Demo Accounts */}
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm font-medium text-gray-700 mb-2">Demo Accounts:</p>
+              <p className="text-sm font-medium text-gray-700 mb-2">{t('login.demoAccounts')}</p>
               <div className="text-xs text-gray-600 space-y-1">
-                <p><strong>User:</strong> user@demo.com / password123</p>
-                <p><strong>Admin:</strong> admin@demo.com / password123</p>
+                <p><strong>{t('login.userDemo')}</strong></p>
+                <p><strong>{t('login.adminDemo')}</strong></p>
               </div>
             </div>
           </CardContent>

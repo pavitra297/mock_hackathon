@@ -115,7 +115,7 @@ const Home = () => {
             <div className="relative">
               <div className="aspect-square bg-white/10 rounded-3xl p-8 backdrop-blur-sm">
                 <img 
-                  src="/api/placeholder/500/500" 
+                  src="https://sheatwork.com/wp-content/uploads/2020/10/rural.jpg" 
                   alt="Women empowerment" 
                   className="w-full h-full object-cover rounded-2xl"
                 />
